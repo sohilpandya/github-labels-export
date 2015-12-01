@@ -1,0 +1,35 @@
+{
+  "name": "github-labels-export",
+  "version": "1.0.0",
+  "description": "Export Labels to your own Repo's for better management.",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/tape/bin/tape ./test/*.test.js && ./node_modules/.bin/istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
+    "jshint": "./node_modules/jshint/bin/jshint -c .jshintrc --exclude-path .gitignore .",
+    "spec": "node ./node_modules/tape/bin/tape ./test/*.test.js | node_modules/tap-spec/bin/cmd.js",
+    "test": "PORT=8000 ./node_modules/.bin/istanbul cover ./node_modules/tape/bin/tape ./test/*.test.js",
+    "start": "PORT=8000 node_modules/.bin/nodemon ./lib/start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sohilpandya/github-labels-export.git"
+  },
+  "author": "sohil pandya",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/sohilpandya/github-labels-export/issues"
+  },
+  "homepage": "https://github.com/sohilpandya/github-labels-export#readme",
+  "dependencies": {
+    "env2": "^2.0.4",
+    "hapi": "^11.1.2",
+    "hoek": "^3.0.4",
+    "inert": "^3.2.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.1",
+    "nock": "^3.3.2",
+    "nodemon": "^1.8.1",
+    "tape": "^4.2.2"
+  }
+}
