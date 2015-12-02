@@ -1,21 +1,23 @@
-var test = require('tape');
-var dir  = __dirname.split('/')[__dirname.split('/').length-1];
-var file = dir + __filename.replace(__dirname, '') + " > ";
+var test    = require('tape');
+// var decache = require('decache'); // http://goo.gl/JIjK9Y
+var path    = require('path');
+
+
+var dir     = __dirname.split('/')[__dirname.split('/').length-1];
+var file    = dir + __filename.replace(__dirname, '') + ' ->';
+
 var start = require('../lib/start.js');
-var index = require('../lib/index.js');
-var home = require('../lib/home.js');
+var server   = require('../lib/index.js');
 
-
-test(file + 'get request at homepage should return 200', function(t){
+test(file + " GET / returns status 200", function(t) {
   var options = {
-    method: "GET",
-    url: "/"
+    method  : "GET",
+    url     : "/"
   };
-  start.inject(options, function(response) {
-    console.log(response.result);
-    t.equal(response.statusCode, 200, "Server is working.");
+  server.inject(options, function (res) {
+    t.equal(res.statusCode, 200, 'google auth loads ok');
     setTimeout(function(){
-      start.stop(t.end);
-    }, 100);
+      server.stop(t.end);
+    },700);
   });
 });

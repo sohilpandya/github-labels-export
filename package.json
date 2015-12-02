@@ -27,6 +27,7 @@
     "inert": "^3.2.0"
   },
   "devDependencies": {
+    "decache": "^3.0.3",
     "istanbul": "^0.4.1",
     "nock": "^3.3.2",
     "nodemon": "^1.8.1",
